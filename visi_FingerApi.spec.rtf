@@ -1,0 +1,82 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf360
+{\fonttbl\f0\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww19360\viewh18660\viewkind0
+\deftab720
+\pard\pardeftab720\ql\qnatural
+
+\f0\fs26 \cf0  Visionica Limited\
+                                =================\
+\
+API Doc:\
+========\
+\
+Function Name: visi_OpenDevice()\
+\
+Description: The function open the fingerprint device.\
+\
+Parameters:\
+        IN: None\
+        OUT: None\
+\
+Returts: Valid device handle, otherwise NULL.\
+\
+struct fp_dev * visi_OpenDevice();\
+\
+   ***********************\
+\
+Function Name: visi_EnrollFingerPrint\
+\
+Description: The function scans the finger print, encrypt and stores in db.\
+\
+Parameters:\
+        IN:\
+            id (valid id to store the finger print template),\
+            dev - valid device handle\
+\
+        OUT: None\
+\
+Returns: finger enrollment status, otherwise -1.\
+\
+int visi_EnrollFingerPrint( int id, struct fp_dev *dev );\
+\
+   ***********************\
+\
+Function Name: visi_MatchFingerPrint\
+\
+Description: The function retrieves the enrolled finger print templates db, initiates new scan, and finally verifies with the  enrolled templates.\
+\
+Parametero:\
+        IN:\
+            id (valid id to retrieve the finger print template),\
+            dev - valid device handle\
+\
+        OUT: None\
+\
+Returns: finger match verification status, otherwise -1.\
+\
+int visi_MatchFingerPrint(int id, struct fp_dev *dev);\
+\
+   ***********************\
+\
+Function Name: visi_CloseDevice\
+\
+Description: The function closes the fingerprint hardware.\
+\
+Parametero:\
+        IN:\
+            dev - valid device handle which was opened by OpenDevice.\
+\
+        OUT: None\
+\
+Returns: finger enrollment status, otherwise -1.\
+\
+void visi_CloseDevice(struct fp_dev *);\
+\
+   ***********************\
+\
+Note: The application supports 2 types of encryption\
+      1) AES - 256 bit\
+      2) PK11\
+\
+}
